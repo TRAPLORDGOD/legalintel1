@@ -1,0 +1,146 @@
+{% extends 'navbar.html' %}
+
+{% block title %}Lawyers Paradise - Legal AI{% endblock %}
+
+{% block content %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Add the font link in the head section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=League+Spartan&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=League+Spartan:wght@500&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block body %}
+  <!-- Style for background image and container -->
+  <style>
+    body {
+ font-family: 'Be Vietnam Pro', 'League Spartan', sans-serif;
+    background-image: url('/static/images/matrix.jpeg');
+    background-repeat: repeat;
+    background-size: cover;
+    color: #FFFFFF;
+    overflow: hidden; /* Prevent scrolling beyond the boundaries */
+  }
+
+
+    .container {
+      max-width: 800px; /* Adjust the max-width as needed */
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* smaller font size for labels, inputs, and select dropdowns */
+    label,
+    input,
+    select {
+      font-size: 0.8em;
+    }
+
+    label {
+      font-style: ;
+      color: #8D06BD;
+    }
+
+    input[type="email"],
+    input[type="text"],
+    input[type="url"] {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0px 0px 5px #ccc;
+      color: #FFFFFF;
+      font-size: 0.8em;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0px 0px 5px #ccc;
+      color: #2E2E2E;
+      font-size: 0.8em;
+      background-color: #FFFFFF;
+    }
+
+.submit-button {
+    padding: 10px 20px; /* Adjust the padding as needed */
+    border-radius: 20px; /* Adjust the border radius as needed */
+    border: none;
+    background-color: #8D06BD;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    /* Adjust the width as needed */
+    font-size: 0.8em; /* Adjust the font size as needed */
+  }
+
+  .submit-button:hover {
+    background-color: #FF1493;
+</style>
+  <!-- Waitlist form -->
+  <div class="container">
+    <h1 style="font-size: 2em; text-align: center; font-family: 'Be Vietnam Pro', 'League Spartan', sans-serif;
+    background-image: url('/static/images/matrix.jpeg'); color: #8D06BD; margin-bottom: 30px;">Join Our Waitlist</h1>
+
+    <p style="font-size: 1.2em;color: #8D06BD; text-align: center; margin-bottom: 20px;">
+      By submitting this form, your firm will join our waitlist to get early access to LEGALINTEL AI. When your firm has been selected, we will reach out to set up a demo.
+    </p>
+
+    <form method="POST" action="{{ url_for('waitlist') }}" style="max-width: 600px; margin: 0 auto;">
+
+  <div style="display:flex; justify-content:space-between; align-items:center; background-color:black; color:white; padding:10px; margin-bottom:10px;">
+    <div style="flex:3;">
+      <label for="firstname" style="font-size: 14px;">FIRST NAME*</label>
+      <input type="text" id="firstname" name="firstname" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+    </div>
+    <div style="flex:3; margin-left:90px;">
+      <label for="lastname" style="font-size: 14px;">LAST NAME*</label>
+      <input type="text" id="lastname" name="lastname" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; background-color:black; color:white; padding:10px; margin-bottom:10px;">
+    <div style="flex:3;">
+      <label for="email" style="font-size: 14px;">EMAIL*</label>
+      <input type="email" id="email" name="email" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+    </div>
+    <div style="flex:3; margin-left:90px;">
+      <label for="firm-website" style="font-size: 14px;">LAW FIRM WEBSITE*</label>
+      <input type="url" id="firm-website" name="firm-website" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; align-items:center; background-color:black; color:white; padding:10px; margin-bottom:10px;">
+    <div style="flex:3;">
+      <label for="title" style="font-size: 14px;">TITLE*</label>
+      <input type="text" id="title" name="title" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+    </div>
+    <div style="flex:3; margin-left:90px;">
+      <label for="country" style="font-size: 14px;">COUNTRY*</label>
+      <select id="country" name="country" style="width: 100%; padding: 5px; margin-bottom: 10px;" required>
+        <option value="">Select</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+      </select>
+    </div>
+  </div>
+<button type="submit" class="submit-button">SUBMIT</button>
+</form>
+  </div>
+{% endblock %}

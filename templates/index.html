@@ -1,0 +1,435 @@
+{% extends 'navbar.html' %}
+
+{% block title %}Lawyers Paradise - Legal AI{% endblock %}
+
+{% block content %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Add the font link in the head section -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=League+Spartan&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=League+Spartan:wght@500&display=swap" rel="stylesheet">
+
+<div style="max-width: 15%; margin: 20px auto 50px auto; display: flex; justify-content: center; position: relative;">
+  <img src="/static/images/circle.gif" alt="Circle GIF" style="max-width:80%;height: auto;">
+  <img id="x-gif" src="/static/images/x.gif" alt="GIF" style="position: absolute; top: 170%; left: 50%; transform: translate(-50%, -50%); opacity: 1; z-index: 1;">
+  <img id="logo" src="/static/images/logo2.png" alt="LegalIntel Logo" style="max-width: 80%;height: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0; z-index: 2;">
+  <h2 id="legalintel" style="font-size: 2em; font-family: 'Be Vietnam Pro', 'League Spartan', sans-serif;
+    background-image: url('/static/images/matrix.jpeg'); text-align: center; position: absolute; top: 150%; left: 50%; transform: translate(-50%, -50%); opacity: 0; z-index: 3; text-shadow: 0 0 50px #FF1493;">LEGALINTEL</h2>
+</div>
+<video autoplay muted loop style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; min-width: 50%; min-height: 50%; filter: blur(5px); z-index: 0;">
+  <source src="/static/videos/spiral.mp4" type="video/mp4">
+</video>
+<p style="font-size: 1.5em; text-align: center; margin-top: 80px;"></p>
+{% endblock %}
+
+{% block body %}
+
+<style>
+   body {
+   font-family: 'Be Vietnam Pro', sans-serif;
+font-family: 'League Spartan', sans-serif;
+    background-image: url('/static/images/matrix.jpeg');
+    background-repeat: repeat;
+    background-size: cover;
+    color: #FFFFFF;
+    overflow-y: scroll; /* Enable vertical scrolling */
+  }
+
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 200px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .waitlist {
+    background-color: #8D06BD;
+    border: none;
+    color: #ffffff;
+    padding: 15px 25px;
+    font-size: 24px;
+    border-radius: 25px;
+    margin-top: 0;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 10px rgba(141, 6, 189, 0.8); /* add a purple glow effect */
+  }
+
+  .glow {
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 px50 #8D06BD;
+    }
+    to {
+      text-shadow: 0 0 100px #FF1493;
+}
+}
+
+#logo {
+  animation: fade-in 10s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#x-gif {
+  animation: fade-out 5s forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#legalintel {
+  animation: legalintel-appear 2s 2s forwards, legalintel-brighten 5s 5s forwards;
+}
+
+@keyframes legalintel-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes legalintel-brighten {
+  0% {
+    text-shadow: 0 0 0 #FF1493;
+  }
+  50% {
+    text-shadow: 0 0 50px #FF1493;
+  }
+  100% {
+    text-shadow: 0 0 100px #FF1493;
+  }
+}
+.whitepaper {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #8D06BD;
+    color: #000000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .whitepaper h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #8D06BD;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .whitepaper h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .whitepaper p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .whitepaper ul,
+  .whitepaper ol {
+    margin-left: 40px;
+    margin-bottom: 15px;
+  }
+
+  .whitepaper li {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+ @media only screen and (max-width: 480px) {
+  .whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .whitepaper {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .whitepaper {
+    width: 33%;
+    margin: 0 auto;
+  }
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  /* CSS */
+
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 480px) {
+  .whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .whitepaper {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .whitepaper {
+    width: 33%;
+    margin: 0 auto;
+  }
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  /* CSS */
+
+}
+
+/*
+  ##Device = Tablets, iPads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* CSS */
+.whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+}
+
+/*
+  ##Device = Tablets, iPads (landscape)
+  ##Screen = B/w 768px to 1024px
+  .whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+.whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+  /* CSS */
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+  .whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  /* CSS */
+  .whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+.whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+.whitepaper {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+  /* CSS */
+
+}
+
+</style>
+
+<div class="container">
+  <h2 id="text" style="font-size: 1.5em; font-family: 'Be Vietnam Pro', 'League Spartan', sans-serif;
+    background-image: url('/static/images/matrix.jpeg'); text-align: center; margin-top:0">Transforming the legal industry with cutting-edge AI technology.</h2>
+  <button class="waitlist glow" onclick="window.location.href='/waitlist'">Join our waitlist</button>
+</div>
+
+<script>
+  const text = "Transforming the legal industry with cutting-edge AI technology.";
+  document.getElementById("text").innerHTML = text;
+</script>
+
+<div class="whitepaper">
+  <h1 style="font-family: 'Be Vietnam Pro', sans-serif;">LegalIntel Whitepaper</h1>
+  <p>LegalIntel uses Artificial Intelligence to enhance the productivity of law firms and lawyers. Like ChatGPT, LEGALINTEL is built on a version of OpenAI's GPT AI. Unlike ChatGPT, LEGALINTEL supports legal work. How? Starting with general internet data from the GPT model, LEGALINTEL was further trained with general legal data (including case law and reference materials). When engaged by a firm, LEGALINTEL is then trained by the firm's own work products and templates (much like a new employee's onboarding when joining a law firm!).</p>
+
+  <p>LEGALINTEL assists with contract analysis, due diligence, litigation, and regulatory compliance and can help generate insights, recommendations, and predictions based on data. As a result, lawyers can deliver faster and more cost-effective solutions for client issues. We have trained our model on the supreme court and high courts data and cases. We also provide assistance with contracts.</p>
+
+  <h2 style="font-family: 'Be Vietnam Pro', sans-serif;">Key Features of LegalIntel:</h2>
+  <ul>
+    <li>Advanced contract analysis</li>
+    <li>Detailed due diligence support</li>
+    <li>Litigation case analysis and prediction</li>
+    <li>Regulatory compliance assistance</li>
+    <li>Insights, recommendations, and predictions based on data</li>
+  </ul>
+
+  <h2 style="font-family: 'Be Vietnam Pro', sans-serif;">How LegalIntel Works:</h2>
+  <p>LegalIntel leverages cutting-edge AI technology to revolutionize the legal industry. Here's a brief overview of how it works:</p>
+  <ol>
+    <li>Training: LegalIntel is initially trained on general internet data using OpenAI's GPT model. It is then further trained with specific legal data, including case law and reference materials.</li>
+    <li>Firm-specific Training: When engaged by a law firm, LegalIntel undergoes training using the firm's own work products and templates. This ensures that the AI understands the firm's specific practices and requirements.</li>
+    <li>Application: Once trained, LegalIntel can assist with various legal tasks, including contract analysis, due diligence, litigation support, and regulatory compliance.</li>
+    <li>Insights and Recommendations: LegalIntel generates valuable insights, recommendations, and predictions based on the analyzed data. This empowers lawyers to make informed decisions and deliver high-quality solutions to their clients.</li>
+  </ol>
+
+  <h2 style="font-family: 'Be Vietnam Pro', sans-serif;">Benefits of Using LegalIntel:</h2>
+  <ul>
+    <li>Increased productivity: LegalIntel automates time-consuming tasks, enabling lawyers to focus on more complex and strategic aspects of their work.</li>
+    <li>Enhanced accuracy: By leveraging AI technology, LegalIntel can analyze vast amounts of legal data with precision, reducing the chances of errors and oversights.</li>
+    <li>Cost-effectiveness: By streamlining legal processes and providing valuable insights, LegalIntel helps law firms deliver faster and more cost-effective solutions to their clients.</li>
+    <li>Improved decision-making: With the support of LegalIntel's data-driven recommendations and predictions, lawyers can make   </ul>
+  <h2 style="font-family: 'Be Vietnam Pro', sans-serif;">Conclusion:</h2>
+  <p>LegalIntel is a game-changer in the legal industry, combining the power of Artificial Intelligence with specialized training in legal work. By harnessing the capabilities of LegalIntel, law firms and lawyers can significantly enhance their productivity, accuracy, and client service. Embracing the potential of AI technology, LegalIntel paves the way for a more efficient and innovative legal landscape.</p>
+  <p><strong>Note:</strong> LegalIntel utilizes machine learning and transfer learning techniques during its training process to continually improve its performance and provide state-of-the-art legal assistance.</p>
+</div>
+
+{% endblock %}

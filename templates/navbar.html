@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      /* Matrix theme colors */
+      :root {
+        --matrix-green: #8D06BD;
+        --matrix-black: #8D06BD;
+      }
+
+      /* Navbar styles */
+      nav {
+        background: linear-gradient(to right, #000000 80%, #8D06BD 99%);
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: color 0.3s ease-in-out;
+      }
+
+      nav a:hover {
+        color: #ff1493;
+      }
+
+      /* Scroll animation */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Whitepaper section styles */
+      #whitepaper-section {
+        padding-top: 50px; /* Adjust the padding-top value as needed */
+      }
+
+      #privacy-policy {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+#privacy-policy.active {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+
+
+      #privacy-policy a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+      }
+
+      #privacy-policy a:hover {
+        color: #ff1493;
+      }
+    </style>
+    <script>
+      function scrollToWhitepaper() {
+        var whitepaperSection = document.getElementById("whitepaper-section");
+        var yOffset = whitepaperSection.offsetTop - 1550; // Adjust the value as needed
+        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+      }
+
+      function showPrivacyPolicy() {
+        var privacyPolicy = document.getElementById("privacy-policy");
+        privacyPolicy.classList.add("active");
+      }
+
+      function checkScrollPosition() {
+        var windowHeight = window.innerHeight;
+        var documentHeight = document.documentElement.scrollHeight;
+        var currentPosition = window.scrollY;
+
+        if (currentPosition >= documentHeight - windowHeight) {
+          showPrivacyPolicy();
+        }
+      }
+
+      window.addEventListener("scroll", checkScrollPosition);
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div>
+        <a href="{{ url_for('index') }}">LEGALINTEL</a>
+      </div>
+      {% if request.path == url_for('index') %}
+      <div>
+        <a href="javascript:void(0);" onclick="scrollToWhitepaper()">Whitepaper</a>
+      </div>
+      {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+    {% block body %}{% endblock %}
+    <section id="whitepaper-section">
+      {% block whitepaper %}{% endblock %}
+    </section>
+    <div id="privacy-policy">
+      <a href="https://docs.google.com/document/d/your-document-link" target="_blank">Privacy Policy</a>
+</div>
+
+  </body>
+</html>

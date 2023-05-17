@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for('static', filename='images/matrix.jpeg') }}');
+            background-repeat: repeat;
+            background-size: cover;
+            color: #FFFFFF;
+            overflow-y: scroll; /* Enable vertical scrolling */
+        }
+
+        .popup {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .popup h2 {
+            font-size: 2em;
+            color: #8D06BD;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 1.2em;
+            color: #8D06BD;
+            margin-bottom: 20px;
+        }
+
+        .popup .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #8D06BD;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .popup .btn:hover {
+            background-color: #FF1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <h2>Thank you for joining our waitlist!</h2>
+        <p>You will hear from us soon.</p>
+        <a href="/" class="btn">Back to Homepage</a>
+    </div>
+</body>
+</html>
